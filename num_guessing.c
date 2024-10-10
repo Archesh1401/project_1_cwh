@@ -1,14 +1,26 @@
 #include<stdio.h> 
+#include<stdlib.h>
+#include<time.h>
 
 int main(){
-     int a;
-     printf("Enter a number that is between 0-100!!!");
-     scanf("%d",&a);
-     if(a<=100 && a>=0){
-        if(a)
-
-     }
-     else 
-     printf("please enter a valid number!!!")
+    srand(time(0));
+    int no_of_guess =0;
+    int guessed;
+    int randomNumber=(rand()%100)+1;
+    do{
+        printf("Guess the number ");
+        scanf("%d",& guessed);
+        if(guessed>randomNumber){
+            printf("guess a lower number");
+            no_of_guess++;
+        }
+        else if (guessed<randomNumber){
+            printf("guess a higher number");
+            no_of_guess++;
+        }
+    }
+    while(guessed !=randomNumber);
+    printf("you guessed the number in %d guesses", no_of_guess);
+     
     return 0;
 }
